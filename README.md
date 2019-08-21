@@ -87,14 +87,6 @@ function extract_additional_block_metadata($blockMeta, $blockName, $block)
 }
 ```
 
-## License
-
-GPLv2 or later
-
-## Credits
-
-- [Leonardo Losoviz](https://leoloso.com)
-
 ## Further references
 
 - [Presentation "COPE with WordPress" in WordCamp Singapore 2019](https://slides.com/leoloso/cope-with-wp)
