@@ -28,7 +28,7 @@ This plugin is based on the strategy called \"Create Once, Publish Everywhere\" 
 
 Having content that works everywhere is not a trivial task, since each medium will have its own requirements. For instance, whereas HTML is valid for printing content for the web, this language is not valid for an iOS/Android app; similarly, we can add classes to our HTML for the web, but these must be converted to styles for email. 
 
-The solution is to separate form from content: The presentation and the meaning of the content must be decoupled, and only the meaning is used as the single source of truth. The presentation can then be added in another layer, specific to the selected medium. For instance, given the following piece of HTML code, the <p> is an HTML tag which applies mostly for the web, and attribute class=\"align-center\" is presentation (placing an element \"on the center\" makes sense for a screen-based medium, but not for an audio-based one such as Amazon Alexa):
+The solution is to separate form from content: The presentation and the meaning of the content must be decoupled, and only the meaning is used as the single source of truth. The presentation can then be added in another layer, specific to the selected medium. For instance, given the following piece of HTML code, the `<p>` is an HTML tag which applies mostly for the web, and attribute class=\"align-center\" is presentation (placing an element \"on the center\" makes sense for a screen-based medium, but not for an audio-based one such as Amazon Alexa):
 
 
 <p class=\"align-center\">Hello world!</p>
