@@ -1,10 +1,13 @@
 <?php
 /*
 Plugin Name: Block Metadata
-Version: 1.0.0
-Description: Extract all metadata from all Gutenberg blocks inside a post
 Plugin URI: https://github.com/leoloso/block-metadata
+Description: Extract all metadata from all Gutenberg blocks inside a post
+Version: 1.0.0
 Author: Leonardo Losoviz
+Author URI: https://leoloso.com
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
 // Register the languages
