@@ -1,6 +1,6 @@
 === Block Metadata ===
 Tags: gutenberg, block, metadata, content, api, platform-agnostic, medium-agnostic, publishing, app
-Requires at least: 4.7
+Requires at least: 5.0
 Tested up to: 5.2
 Requires PHP: 5.6
 License: GPLv2 or later
