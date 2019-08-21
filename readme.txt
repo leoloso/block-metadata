@@ -5,6 +5,7 @@ Tested up to: 5.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Contributors: leoloso
 
 Extract all metadata from all Gutenberg blocks inside of a post
 
