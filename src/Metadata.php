@@ -196,6 +196,14 @@ class Metadata {
                     break;
             }
 
+            // Allow to extend for other blocks, or override values
+            $blockMeta = apply_filters(
+                'Leoloso\BlockMetadata\Metadata::blockMeta',
+                $blockMeta,
+                $block['blockName'],
+                $block
+            );
+
             if ($blockMeta) {
                 $ret[] = [
                     'blockName' => $block['blockName'],
@@ -204,12 +212,7 @@ class Metadata {
             }
         }
 
-        // Allow to extend for other blocks, or override values
-        return apply_filters(
-            'block_metadata',
-            $ret,
-            $block_data
-        );
+        return $ret;
     }
 
     public static function strip_tags($content)
