@@ -97,5 +97,5 @@ GPLv2 or later
 
 ## Further references
 
-- [Presentation in WordCamp Singapore 2019](https://slides.com/leoloso/cope-with-wp)
+- [Presentation "COPE with WordPress" in WordCamp Singapore 2019](https://slides.com/leoloso/cope-with-wp)
 
