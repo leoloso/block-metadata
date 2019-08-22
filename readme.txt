@@ -105,6 +105,7 @@ function extract_additional_block_metadata($blockMeta, $blockName, $block)
 
 * Presentation \"COPE with WordPress\" in WordCamp Singapore 2019
 
+Banner image <a href="https://www.freepik.com">designed by Freepik</a>
 
 == Installation ==
 1. Make sure pretty permalinks are enabled (eg: \"/%postname%/\")

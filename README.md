@@ -91,3 +91,4 @@ function extract_additional_block_metadata($blockMeta, $blockName, $block)
 
 - [Presentation "COPE with WordPress" in WordCamp Singapore 2019](https://slides.com/leoloso/cope-with-wp)
 
+<!--_Banner image [designed by Freepik](https://www.freepik.com)_-->
