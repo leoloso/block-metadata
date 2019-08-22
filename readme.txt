@@ -3,7 +3,7 @@ Tags: gutenberg, block, metadata, content, api, platform-agnostic, medium-agnost
 Requires at least: 5.0
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Contributors: leoloso
@@ -81,13 +81,13 @@ The following Gutenberg blocks are supported, and this plugin extracts their met
 
 We can extend this plugin to extract the metadata for additional blocks, such as those shipped through plugins. To do this, simply add a hook for filter `"Leoloso\BlockMetadata\Metadata::blockMeta"` (located in function `get_block_metadata($block_data)` from class `Metadata` in file `block-metadata/src/Metadata.php`). The attributes that must be extracted must be decided on a block type by block type basis:
 
-`add_filter(\'Leoloso\BlockMetadata\Metadata::blockMeta\', \'extract_additional_block_metadata\', 10, 3);
+`add_filter("Leoloso\BlockMetadata\Metadata::blockMeta", "extract_additional_block_metadata", 10, 3);
 function extract_additional_block_metadata($blockMeta, $blockName, $block)
 {
-  if ($blockName == \'my-plugin/my-block-name\') {
+  if ($blockName == "my-plugin/my-block-name") {
     return array(
-      \'property1\' => $block[\'property1\'],
-      \'property2\' => $block[\'property2\']
+      "property1" => $block["property1"],
+      "property2" => $block["property2"]
     );
   }
 
