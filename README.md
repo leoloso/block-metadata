@@ -1,6 +1,8 @@
 # Block Metadata
 
-This plugin helps convert WordPress into a manager of our digital content, to publish it in different mediums or platforms: not just the website, but also email, iOS/Android apps, home-assistants (like Amazon Alexa) and others. It does this by extracting the metadata from all Gutenberg blocks inside of a blog post. Because each Gutenberg block stores its own content and properties (which can depend on its type: a paragraph block, a Youtube embed block, and an image block all have different properties), these ones can be extracted as metadata and exported through a JSON object, accessible through a REST API endpoint, to feed any application on any platform.
+This plugin helps convert WordPress into a manager of our digital content, to publish it in different mediums or platforms: not just the website, but also email, iOS/Android apps, home-assistants (like Amazon Alexa) and others. 
+
+It does this by extracting the metadata from all Gutenberg blocks inside of a blog post. Because each Gutenberg block stores its own content and properties, these ones can be extracted as metadata and exported through a JSON object, accessible through a REST API endpoint, to feed any application on any platform.
 
 The plugin makes the following REST API endpoints available:
 
