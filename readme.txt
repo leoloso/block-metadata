@@ -3,7 +3,7 @@ Tags: gutenberg, block, metadata, content, api, platform-agnostic, medium-agnost
 Requires at least: 5.0
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Contributors: leoloso
@@ -96,9 +96,14 @@ function extract_additional_block_metadata($blockMeta, $blockName, $block)
 
 = Further references =
 
-* [Presentation "COPE with WordPress" in WordCamp Singapore 2019](https://slides.com/leoloso/cope-with-wp)
+* [Inspiration for the plugin](https://leoloso.com/posts/my-1st-wp-plugin/)
+* [Slides from presentation "COPE with WordPress"](https://slides.com/leoloso/cope-with-wp) (from WordCamp Singapore 2019), explaining how the plugin works
 
 Banner image <a href="https://www.freepik.com">designed by Freepik</a>
+
+= Contributing / Reporting issues =
+
+Please head over to the project's [GitHub repo](https://github.com/leoloso/block-metadata) for contributing, reporting issues or making suggestions, and others.
 
 == Installation ==
 1. Make sure pretty permalinks are enabled (eg: "/%postname%/")

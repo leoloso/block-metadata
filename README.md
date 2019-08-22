@@ -91,6 +91,7 @@ function extract_additional_block_metadata($blockMeta, $blockName, $block)
 
 ## Further references
 
-- [Presentation "COPE with WordPress" in WordCamp Singapore 2019](https://slides.com/leoloso/cope-with-wp)
+- [Inspiration for the plugin](https://leoloso.com/posts/my-1st-wp-plugin/)
+- [Slides from presentation "COPE with WordPress"](https://slides.com/leoloso/cope-with-wp) (from WordCamp Singapore 2019), explaining how the plugin works
 
 <!--_Banner image [designed by Freepik](https://www.freepik.com)_-->
