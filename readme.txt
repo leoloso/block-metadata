@@ -99,11 +99,11 @@ function extract_additional_block_metadata($blockMeta, $blockName, $block)
 * [Inspiration for the plugin](https://leoloso.com/posts/my-1st-wp-plugin/)
 * [Slides from presentation "COPE with WordPress"](https://slides.com/leoloso/cope-with-wp) (from WordCamp Singapore 2019), explaining how the plugin works
 
-Banner image <a href="https://www.freepik.com">designed by Freepik</a>
-
 = Contributing / Reporting issues =
 
 Please head over to the project's [GitHub repo](https://github.com/leoloso/block-metadata) for contributing, reporting issues or making suggestions, and others.
+
+_Banner image <a href="https://www.freepik.com">designed by Freepik</a>_
 
 == Installation ==
 1. Make sure pretty permalinks are enabled (eg: "/%postname%/")
