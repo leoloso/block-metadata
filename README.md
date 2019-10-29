@@ -91,6 +91,7 @@ function extract_additional_block_metadata($blockMeta, $blockName, $block)
 
 ## Further references
 
+- Article [“Create Once, Publish Everywhere” with WordPress](https://www.smashingmagazine.com/2019/10/create-once-publish-everywhere-wordpress/), explaining the logic of code in detail
 - [Inspiration for the plugin](https://leoloso.com/posts/my-1st-wp-plugin/)
 - [Slides from presentation "COPE with WordPress"](https://slides.com/leoloso/cope-with-wp) (from WordCamp Singapore 2019), explaining how the plugin works
 
