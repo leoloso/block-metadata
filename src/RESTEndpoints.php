@@ -8,7 +8,7 @@ class RESTEndpoints {
      * @param [type] $request
      * @return void
      */
-    public static function get_post_blocks($request) 
+    public static function get_post_blocks($request)
     {
         $post = \get_post($request['post_id']);
         if (!$post) {
@@ -27,21 +27,27 @@ class RESTEndpoints {
      * @param [type] $request
      * @return void
      */
-    public static function get_post_block_meta($request) 
+    public static function get_post_block_meta($request)
     {
         $post = \get_post($request['post_id']);
         if (!$post) {
             return new \WP_Error('empty_post', 'There is no post with this ID', array('status' => 404));
         }
 
+        $item_metadata = array();
+        $item_metadata['id'] = $post->ID;
+        $item_metadata['title'] = $post->post_title;
+
         $block_data = Data::get_block_data($post->post_content);
         $block_metadata = Metadata::get_block_metadata($block_data);
-        $response = new \WP_REST_Response($block_metadata);
+        $item_metadata['blocks'] = $block_metadata;
+
+        $response = new \WP_REST_Response($item_metadata);
         $response->set_status(200);
         return $response;
     }
 
-    public static function get_all_post_block_meta($request) 
+    public static function get_all_post_block_meta($request)
     {
         $args = array(
             'numberposts' => -1
@@ -53,7 +59,7 @@ class RESTEndpoints {
             $item_metadata = array();
             $item_metadata['id'] = $post->ID;
             $item_metadata['title'] = $post->post_title;
-            
+
             $block_data = Data::get_block_data($post->post_content);
             $block_metadata = Metadata::get_block_metadata($block_data);
             $item_metadata['blocks'] = $block_metadata;
