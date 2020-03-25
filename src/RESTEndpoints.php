@@ -50,9 +50,13 @@ class RESTEndpoints {
     public static function get_all_post_block_meta($request)
     {
         $args = array(
-            'numberposts' => -1
+            'numberposts' => 3000
         );
         $posts = \get_posts($args);
+
+        $count_query = new \WP_Query();
+        $count_query->query( array() );
+        $total_posts  = $count_query->found_posts;
 
         $result = array();
         foreach($posts as $post) {
@@ -66,6 +70,7 @@ class RESTEndpoints {
             $result[] = $item_metadata;
         }
         $response = new \WP_REST_Response($result);
+        $response->header( 'X-WP-Total', (int) $total_posts );
         $response->set_status(200);
         return $response;
     }
