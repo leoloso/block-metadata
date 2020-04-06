@@ -35,8 +35,12 @@ class RESTEndpoints {
         }
 
         $item_metadata = array();
-        $item_metadata['id'] = $post->ID;
-        $item_metadata['title'] = $post->post_title;
+
+        foreach( $post as $meta_key => $meta_value ) {
+            if ($meta_key != 'post_content') {
+                $item_metadata[$meta_key] = $meta_value;
+            }
+        }
 
         $block_data = Data::get_block_data($post->post_content);
         $block_metadata = Metadata::get_block_metadata($block_data);
@@ -65,8 +69,12 @@ class RESTEndpoints {
         $result = array();
         foreach($posts as $post) {
             $item_metadata = array();
-            $item_metadata['id'] = $post->ID;
-            $item_metadata['title'] = $post->post_title;
+
+            foreach( $post as $meta_key => $meta_value ) {
+                if ($meta_key != 'post_content') {
+                    $item_metadata[$meta_key] = $meta_value;
+                }
+            }
 
             $block_data = Data::get_block_data($post->post_content);
             $block_metadata = Metadata::get_block_metadata($block_data);
