@@ -70,7 +70,7 @@ class Metadata {
                     ];
                     $blockMeta = [
                         'size' => $sizes[$matches[1]],
-                        'heading' => $matches[2],
+                        'heading' => $matches[2]['innerHTML'],
                     ];
                     break;
 
