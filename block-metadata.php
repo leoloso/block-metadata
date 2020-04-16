@@ -3,7 +3,7 @@
 Plugin Name: Block Metadata
 Plugin URI: https://github.com/leoloso/block-metadata
 Description: Extract all metadata from all Gutenberg blocks inside a post
-Version: 1.0.5
+Version: 1.0.7
 Requires at least: 5.0
 Requires PHP: 5.6
 Author: Leonardo Losoviz
