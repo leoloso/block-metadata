@@ -1,5 +1,5 @@
 <?php
-namespace Leoloso\BlockMetadata;
+namespace Zamaneh\RestfulBlocks;
 
 /**
  * Manages the block data

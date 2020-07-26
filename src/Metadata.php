@@ -1,5 +1,5 @@
 <?php
-namespace Leoloso\BlockMetadata;
+namespace Zamaneh\RestfulBlocks;
 
 /**
  * Manages the block metadata
@@ -198,7 +198,7 @@ class Metadata {
 
             // Allow to extend for other blocks, or override values
             $blockMeta = apply_filters(
-                'Leoloso\BlockMetadata\Metadata::blockMeta',
+                'Zamaneh\RestfulBlocks\Metadata::blockMeta',
                 $blockMeta,
                 $block['blockName'],
                 $block

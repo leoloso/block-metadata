@@ -1,5 +1,5 @@
 <?php
-namespace Leoloso\BlockMetadata;
+namespace Zamaneh\RestfulBlocks;
 /**
  * Define WPGraphQL field "jsonencoded_block_metadata"
  */
