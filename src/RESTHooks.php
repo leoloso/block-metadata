@@ -18,15 +18,23 @@ class RESTHooks {
           \register_rest_field( 'post', 'blocks', array(
             'get_callback'      => [RESTHooks::class, 'get_blocks'],
             'update_callback'   => null,
-            'schema'            => null,
+            'schema'            => array(
+              'description'     => __( 'Array of post block metadata. Empty unless explicitly requested with `_fields`.' ),
+              'type'            => 'array'
+            ),
           ) );
 
         } );
     }
 
-    public static function get_blocks( $object, $attr, $request, $object_type ) {
+    public static function get_blocks( $prepared, $attr, $request, $object_type ) {
 
-      $post = \get_post( $object );
+      // Shortcut invocation if field is not explicitly requested for API request
+      if ( ! array_key_exists( '_fields', $request->get_query_params() ) ) {
+        return array();
+      }
+
+      $post = \get_post( $prepared );
       $block_data = Data::get_block_data( $post->post_content );
       $block_metadata = Metadata::get_block_metadata( $block_data );
       return $block_metadata;

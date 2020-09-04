@@ -32,6 +32,8 @@ if ( defined( 'REST_PER_PAGE_MAXIMUM' ) ) {
   } );
 }
 
+// Also check to see if we can only include the `blocks` field when it's specified by _fields
+
 // Include all source code
 include_once 'src/load.php';
 
