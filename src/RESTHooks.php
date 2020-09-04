@@ -26,8 +26,6 @@ class RESTHooks {
 
     public static function get_blocks( $object, $attr, $request, $object_type ) {
 
-      trigger_error( 'Calling `get_block();`' , E_USER_NOTICE );
-
       $post = \get_post( $object );
       $block_data = Data::get_block_data( $post->post_content );
       $block_metadata = Metadata::get_block_metadata( $block_data );
