@@ -20,19 +20,17 @@ function restful_blocks_init() {
     load_plugin_textdomain('restful-blocks', false, dirname(plugin_basename(__FILE__)).'/languages');
 }
 
-// Also parameterize REST_PER_PAGE_DEFAULT
-
-if ( defined( 'REST_PER_PAGE_MAXIMUM' ) ) {
+if ( defined( 'REST_PER_PAGE_DEFAULT' ) || defined( 'REST_PER_PAGE_MAXIMUM' ) ) {
   // from https://wordpress.stackexchange.com/questions/281881/increase-per-page-limit-in-rest-api
   add_filter( 'rest_post_collection_params', function( $query_params ) {
-    $query_params['per_page']['maximum'] = REST_PER_PAGE_MAXIMUM;
-    if (REST_PER_PAGE_MAXIMUM < $query_params['per_page']['default'])
-      $query_params['per_page']['default'] = REST_PER_PAGE_MAXIMUM;
+    defined( 'REST_PER_PAGE_DEFAULT' ) && $query_params['per_page']['default'] = REST_PER_PAGE_DEFAULT;
+    defined( 'REST_PER_PAGE_MAXIMUM' ) && $query_params['per_page']['maximum'] = REST_PER_PAGE_MAXIMUM;
+    // Sanity check
+    if ($query_params['per_page']['maximum'] < $query_params['per_page']['default'])
+      $query_params['per_page']['default'] = $query_params['per_page']['maximum'];
     return $query_params;
   } );
 }
-
-// Also check to see if we can only include the `blocks` field when it's specified by _fields
 
 // Include all source code
 include_once 'src/load.php';

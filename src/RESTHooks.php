@@ -19,6 +19,7 @@ class RESTHooks {
             'get_callback'      => [RESTHooks::class, 'get_blocks'],
             'update_callback'   => null,
             'schema'            => array(
+              // Can we dro the field entirely unless it's explicitly requested with `_fields`?
               'description'     => __( 'Array of post block metadata. Empty unless explicitly requested with `_fields`.' ),
               'type'            => 'array'
             ),
