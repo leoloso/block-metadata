@@ -19,7 +19,7 @@ class RESTHooks {
             'get_callback'      => [RESTHooks::class, 'get_blocks'],
             'update_callback'   => null,
             'schema'            => array(
-              // Can we dro the field entirely unless it's explicitly requested with `_fields`?
+              // Can we drop the field entirely unless it's explicitly requested with `_fields`?
               'description'     => __( 'Array of post block metadata. Empty unless explicitly requested with `_fields`.' ),
               'type'            => 'array'
             ),
@@ -35,7 +35,7 @@ class RESTHooks {
         return array();
       }
 
-      $post = \get_post( $prepared );
+      $post = \get_post( $prepared['id'] );
       $block_data = Data::get_block_data( $post->post_content );
       $block_metadata = Metadata::get_block_metadata( $block_data );
       return $block_metadata;
