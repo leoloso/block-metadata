@@ -23,7 +23,7 @@ class Metadata {
                 case 'core/image':
                     $blockMeta = [];
                     // If inserting the image from the Media Manager, it has an ID
-                    if (isset($block['attrs']['id']) && $img = wp_get_attachment_image_src($block['attrs']['id'], $block['attrs']['sizeSlug'])) {
+                    if (isset($block['attrs']['id']) && $img = wp_get_attachment_image_src($block['attrs']['id'], 'full')) {
                         $blockMeta['img'] = [
                             'src' => $img[0],
                             'width' => $img[1],
@@ -44,6 +44,9 @@ class Metadata {
                     }
                     if (isset($block['attrs']['align']) && $align = $block['attrs']['align']) {
                         $blockMeta['align'] = $align;
+                    }
+                    if (isset($block['attrs']['sizeSlug']) && $sizeSlug = $block['attrs']['sizeSlug']) {
+                        $blockMeta['sizeSlug'] = $sizeSlug;
                     }
                     break;
 
