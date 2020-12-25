@@ -3,7 +3,7 @@
 Plugin Name: Restful Blocks
 Plugin URI: https://github.com/zamanehmedia/restful-blocks
 Description: Extract all metadata from all Gutenberg blocks inside a post
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 5.0
 Requires PHP: 5.6
 Author: Marcel Oomens
