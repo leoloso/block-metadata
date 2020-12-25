@@ -58,7 +58,7 @@ class Metadata {
 
                 case 'core/heading':
                     $matches = [];
-                    preg_match('/<h([1-6])>(.*?)<\/h([1-6])>/', $block['innerHTML'], $matches);
+                    preg_match('/<h([1-6]).*?>(.*?)<\/h([1-6])>/', $block['innerHTML'], $matches);
                     $sizes = [
                         null,
                         'xxl',
