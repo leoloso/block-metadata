@@ -14,16 +14,20 @@ class RESTHooks {
          * Define REST fields
          */
         \add_action( 'rest_api_init', function() {
-
-          \register_rest_field( 'post', 'blocks', array(
+            
+            // I'm a bit confused about objects vs. CPTs. Does this allow for the `blocks` field on pages
+            // and other post-like CPTs? Should I parameterize this and allow it to be filtered?
+            $allowed_objects = array( 'post' );
+            
+            \register_rest_field( $allowed_objects, 'blocks', array(
             'get_callback'      => [RESTHooks::class, 'get_blocks'],
             'update_callback'   => null,
             'schema'            => array(
-              // Can we drop the field entirely unless it's explicitly requested with `_fields`?
-              'description'     => __( 'Array of post block metadata. Empty unless explicitly requested with `_fields`.' ),
-              'type'            => 'array'
+                // Can we drop the field entirely unless it's explicitly requested with `_fields`?
+                'description'     => __( 'Array of post block metadata. Empty unless explicitly requested with `_fields`.' ),
+                'type'            => 'array'
             ),
-          ) );
+            ) );
 
         } );
     }
