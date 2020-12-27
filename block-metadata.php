@@ -21,15 +21,18 @@ function restful_blocks_init() {
 }
 
 if ( defined( 'REST_PER_PAGE_DEFAULT' ) || defined( 'REST_PER_PAGE_MAXIMUM' ) ) {
-  // from https://wordpress.stackexchange.com/questions/281881/increase-per-page-limit-in-rest-api
-  add_filter( 'rest_post_collection_params', function( $query_params ) {
-    defined( 'REST_PER_PAGE_DEFAULT' ) && $query_params['per_page']['default'] = REST_PER_PAGE_DEFAULT;
-    defined( 'REST_PER_PAGE_MAXIMUM' ) && $query_params['per_page']['maximum'] = REST_PER_PAGE_MAXIMUM;
-    // Sanity check
-    if ($query_params['per_page']['maximum'] < $query_params['per_page']['default'])
-      $query_params['per_page']['default'] = $query_params['per_page']['maximum'];
-    return $query_params;
-  } );
+  $object_types = defined( 'REST_PER_PAGE_OBJECTS' ) ? explode(',', REST_PER_PAGE_OBJECTS) : array( 'post' );
+  foreach ( $object_types as $type ) {
+    // from https://wordpress.stackexchange.com/questions/281881/increase-per-page-limit-in-rest-api
+    add_filter( "rest_${type}_collection_params", function( $query_params ) {
+      defined( 'REST_PER_PAGE_DEFAULT' ) && $query_params['per_page']['default'] = REST_PER_PAGE_DEFAULT;
+      defined( 'REST_PER_PAGE_MAXIMUM' ) && $query_params['per_page']['maximum'] = REST_PER_PAGE_MAXIMUM;
+      // Sanity check
+      if ($query_params['per_page']['maximum'] < $query_params['per_page']['default'])
+        $query_params['per_page']['default'] = $query_params['per_page']['maximum'];
+      return $query_params;
+    } );
+  }
 }
 
 // Include all source code
