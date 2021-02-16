@@ -1,5 +1,5 @@
 <?php
-namespace Leoloso\BlockMetadata;
+namespace Zamaneh\RestfulBlocks;
 
 /**
  * Manages the block metadata
@@ -23,7 +23,7 @@ class Metadata {
                 case 'core/image':
                     $blockMeta = [];
                     // If inserting the image from the Media Manager, it has an ID
-                    if (isset($block['attrs']['id']) && $img = wp_get_attachment_image_src($block['attrs']['id'], $block['attrs']['sizeSlug'])) {
+                    if (isset($block['attrs']['id']) && $img = wp_get_attachment_image_src($block['attrs']['id'], 'full')) {
                         $blockMeta['img'] = [
                             'src' => $img[0],
                             'width' => $img[1],
@@ -45,6 +45,9 @@ class Metadata {
                     if (isset($block['attrs']['align']) && $align = $block['attrs']['align']) {
                         $blockMeta['align'] = $align;
                     }
+                    if (isset($block['attrs']['sizeSlug']) && $sizeSlug = $block['attrs']['sizeSlug']) {
+                        $blockMeta['sizeSlug'] = $sizeSlug;
+                    }
                     break;
 
                 case 'core-embed/youtube':
@@ -58,7 +61,7 @@ class Metadata {
 
                 case 'core/heading':
                     $matches = [];
-                    preg_match('/<h([1-6])>(.*?)<\/h([1-6])>/', $block['innerHTML'], $matches);
+                    preg_match('/<h([1-6]).*?>(.*?)<\/h([1-6])>/', $block['innerHTML'], $matches);
                     $sizes = [
                         null,
                         'xxl',
@@ -198,7 +201,7 @@ class Metadata {
 
             // Allow to extend for other blocks, or override values
             $blockMeta = apply_filters(
-                'Leoloso\BlockMetadata\Metadata::blockMeta',
+                'Zamaneh\RestfulBlocks\Metadata::blockMeta',
                 $blockMeta,
                 $block['blockName'],
                 $block
@@ -215,9 +218,9 @@ class Metadata {
         return $ret;
     }
 
-    public static function strip_tags($content)
+    public static function strip_tags($content, $allowed_tags='<strong><a>')
     {
-        return strip_tags($content, '<strong><em>');
+        return \strip_tags($content, $allowed_tags);
     }
 
     public static function extract_caption($innerHTML)
