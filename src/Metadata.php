@@ -46,21 +46,6 @@ class Metadata {
                     }
                     break;
                 
-                /**
-                 * Support for core/embed
-                 *
-                   <!-- wp:embed {"url":"https://youtu.be/UePbqEdUKwE","type":"video","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
-                   <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-                   https://youtu.be/UePbqEdUKwE
-                   </div></figure>
-                   <!-- /wp:embed -->
-                   
-                   <!-- wp:embed {"url":"https://twitter.com/freepressunltd/status/1365225448800722946","type":"rich","providerNameSlug":"twitter","responsive":true,"className":""} -->
-                   <figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter"><div class="wp-block-embed__wrapper">
-                   https://twitter.com/freepressunltd/status/1365225448800722946
-                   </div></figure>
-                   <!-- /wp:embed -->
-                 */
                 case 'core/embed':
                     $blockMeta = [
                         'url' => $block['attrs']['url'],
@@ -71,15 +56,6 @@ class Metadata {
                         $blockMeta['caption'] = $caption;
                     }
 
-                    break;
-
-                case 'core-embed/youtube':
-                    $blockMeta = [
-                        'url' => $block['attrs']['url'],
-                    ];
-                    if ($caption = self::extract_caption($block['innerHTML'])) {
-                        $blockMeta['caption'] = $caption;
-                    }
                     break;
 
                 case 'core/heading':
