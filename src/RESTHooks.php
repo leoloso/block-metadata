@@ -11,6 +11,11 @@ class RESTHooks {
      */
     public static function init() {
         /**
+         * Set up filters
+         */
+        \add_filter( 'Zamaneh\RestfulBlocks\RESTHooks::expandImageId', [Metadata::class, 'expand_image_id'] );
+        
+        /**
          * Define REST fields
          */
         \add_action( 'rest_api_init', function() {

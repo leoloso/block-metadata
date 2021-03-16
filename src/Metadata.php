@@ -23,12 +23,8 @@ class Metadata {
                 case 'core/image':
                     $blockMeta = [];
                     // If inserting the image from the Media Manager, it has an ID
-                    if (isset($block['attrs']['id']) && $img = wp_get_attachment_image_src($block['attrs']['id'], 'full')) {
-                        $blockMeta['img'] = [
-                            'src' => $img[0],
-                            'width' => $img[1],
-                            'height' => $img[2],
-                        ];
+                    if (isset($block['attrs']['id']) && $img = \apply_filters('Zamaneh\RestfulBlocks\RESTHooks::expandImageId', $block['attrs']['id']) ) {
+                        $blockMeta['img'] = $img;
                     }
                     elseif ($src = self::extract_image_src($block['innerHTML'])) {
                         $blockMeta['src'] = $src;
@@ -49,14 +45,17 @@ class Metadata {
                         $blockMeta['sizeSlug'] = $sizeSlug;
                     }
                     break;
-
-                case 'core-embed/youtube':
+                
+                case 'core/embed':
                     $blockMeta = [
                         'url' => $block['attrs']['url'],
+                        'provider' => $block['attrs']['providerNameSlug'],
+                        'type' => $block['attrs']['type'],
                     ];
                     if ($caption = self::extract_caption($block['innerHTML'])) {
                         $blockMeta['caption'] = $caption;
                     }
+
                     break;
 
                 case 'core/heading':
@@ -251,5 +250,18 @@ class Metadata {
             return $src;
         }
         return null;
+    }
+    
+    public static function expand_image_id($id)
+    {
+        if ($img = \wp_get_attachment_image_src($id, 'full')) {
+            return array(
+                'src' => $img[0],
+                'width' => $img[1],
+                'height' => $img[2],
+            );
+        } else {
+            return false;
+        }   
     }
 }
