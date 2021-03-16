@@ -45,14 +45,17 @@ class Metadata {
                         $blockMeta['sizeSlug'] = $sizeSlug;
                     }
                     break;
-
-                case 'core-embed/youtube':
+                
+                case 'core/embed':
                     $blockMeta = [
                         'url' => $block['attrs']['url'],
+                        'provider' => $block['attrs']['providerNameSlug'],
+                        'type' => $block['attrs']['type'],
                     ];
                     if ($caption = self::extract_caption($block['innerHTML'])) {
                         $blockMeta['caption'] = $caption;
                     }
+
                     break;
 
                 case 'core/heading':
