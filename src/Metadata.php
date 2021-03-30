@@ -173,7 +173,7 @@ class Metadata {
                 case 'core/pullquote':
                     $matches = [];
                     $regexes = [
-                        'core/quote' => '/<blockquote class=\"wp-block-quote\">(.*?)<\/blockquote>/',
+                        'core/quote' => '/<blockquote class=\"wp-block-quote.*?\">(.*?)<\/blockquote>/',
                         'core/pullquote' => '/<figure class=\"wp-block-pullquote\"><blockquote>(.*?)<\/blockquote><\/figure>/',
                     ];
                     preg_match($regexes[$block['blockName']], $block['innerHTML'], $matches);
