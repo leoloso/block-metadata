@@ -17,7 +17,7 @@ It does this by extracting the metadata from all Gutenberg blocks inside of a bl
 
 The plugin makes the following REST API field available on objects of `post` type:
 
-`blocks: [...]`
+`restful_blocks: [...]`
 
 Demonstration:
 

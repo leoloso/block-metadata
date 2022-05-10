@@ -22,7 +22,7 @@ class RESTHooks {
             
             $allowed_objects = \apply_filters( 'Zamaneh\RestfulBlocks\RESTHooks::objectType', array( 'post', 'page' ) );
                         
-            \register_rest_field( $allowed_objects, 'blocks', array(
+            \register_rest_field( $allowed_objects, 'restful_blocks', array(
                 'get_callback'      => [RESTHooks::class, 'get_blocks'],
                 'update_callback'   => null,
                 'schema'            => array(
